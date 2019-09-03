@@ -13,14 +13,12 @@
                     @update="handleValueChange"
             />
         </div>
-        <CounterSum :counterSum="counterSum"></CounterSum>
+        <CounterSum></CounterSum>
     </div>
 </template>
-
 <script>
     import Counter from './Counter.vue'
     import CounterSum from './CounterSum.vue'
-
     export default {
         name: 'counter-group',
         components: {
@@ -37,16 +35,19 @@
                     sum = sum + element.value;
                 });
                 return sum;
+            },
+            counters : function() {
+                return this.$store.state.counters;
             }
         },
-        created: function () {
-            // 根据 counterNumber 生成 counter 数据和组件
-            for (let i = 0; i < this.counterNumber; i++) {
-                this.counters.push({
-                    value: 0
-                });
-            }
-        },
+        // created: function () {
+        //     // 根据 counterNumber 生成 counter 数据和组件
+        //     for (let i = 0; i < this.counterNumber; i++) {
+        //         this.counters.push({
+        //             value: 0
+        //         });
+        //     }
+        // },
         methods: {
             handleValueChange: function (index, value,) {
                 this.counters[index].value = value;
@@ -54,8 +55,8 @@
         },
         data: function () {
             return {
-                counters: []
+                // counters: []
             }
-        }
+        },
     }
 </script>

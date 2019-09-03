@@ -10,7 +10,19 @@
     export default {
         name: 'counter-sum',
         props: {
-            counterSum: Number
+            // counterSum: Number
+        },
+        computed:{
+            counterSum: function () {
+                // let sum = 0;
+                // this.counters.forEach(element => {
+                //     sum = sum + element.value;
+                // });
+                return this.$store.getters.counterSum;
+            },
+            counters : function() {
+                return this.$store.state.counters;
+            }
         }
     }
 </script>

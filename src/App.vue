@@ -16,10 +16,13 @@
             return {
                 counterNumbers:3
             }
+        },
+        mounted() {
+            console.log(this.$store);
+            
         }
     }
 </script>
-
 <style>
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
